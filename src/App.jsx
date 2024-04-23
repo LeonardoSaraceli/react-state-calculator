@@ -9,22 +9,22 @@ function App() {
   const [store, setStore] = useState(0)
 
   function handleFirstNum(e) {
-    if (firstNum === 0) {
+    if (e.target.textContent === '.' && firstNum.toString().includes('.')) return
+  
+    if (firstNum === 0 || firstNum === '0') {
       setFirstNum(e.target.textContent)
-    } else if (firstNum > 0) {
-      setFirstNum(firstNum + e.target.textContent)
     } else {
-      setFirstNum(0)
+      setFirstNum(firstNum + e.target.textContent)
     }
   }
 
   function handleSecondNum(e) {
-    if (secondNum === 0) {
+    if (e.target.textContent === '.' && secondNum.toString().includes('.')) return
+  
+    if (secondNum === 0 || secondNum === '0') {
       setSecondNum(e.target.textContent)
-    } else if (secondNum > 0) {
-      setSecondNum(secondNum + e.target.textContent)
     } else {
-      setSecondNum(0)
+      setSecondNum(secondNum + e.target.textContent)
     }
   }
 
@@ -79,6 +79,7 @@ function App() {
           <button onClick={handleFirstNum}>8</button>
           <button onClick={handleFirstNum}>9</button>
           <button onClick={handleFirstNum}>0</button>
+          <button onClick={handleFirstNum}>.</button>
           <button onClick={handleResetFirstNum}>Clear</button>
           <button onClick={handleFirstNumRecall}>Recall</button>
         </div>
@@ -107,6 +108,7 @@ function App() {
           <button onClick={handleSecondNum}>8</button>
           <button onClick={handleSecondNum}>9</button>
           <button onClick={handleSecondNum}>0</button>
+          <button onClick={handleSecondNum}>.</button>
           <button onClick={handleResetSecondNum}>Clear</button>
           <button onClick={handleSecondNumRecall}>Recall</button>
         </div>
