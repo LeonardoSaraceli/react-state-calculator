@@ -10,16 +10,20 @@ function App() {
   function handleFirstNum(e) {
     if (firstNum === 0) {
       setFirstNum(e.target.textContent)
-    } else {
+    } else if (firstNum > 0) {
       setFirstNum(firstNum + e.target.textContent)
+    } else {
+      setFirstNum(0)
     }
   }
 
   function handleSecondNum(e) {
     if (secondNum === 0) {
       setSecondNum(e.target.textContent)
-    } else {
+    } else if (secondNum > 0) {
       setSecondNum(secondNum + e.target.textContent)
+    } else {
+      setSecondNum(0)
     }
   }
 
