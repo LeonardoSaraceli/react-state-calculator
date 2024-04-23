@@ -6,6 +6,7 @@ function App() {
   const [secondNum, setSecondNum] = useState(0)
   const [operator, setOperator] = useState('+')
   const [result, setResult] = useState(0)
+  const [store, setStore] = useState(0)
 
   function handleFirstNum(e) {
     if (firstNum === 0) {
@@ -51,6 +52,18 @@ function App() {
     } 
   }
 
+  function handleStore() {
+    setStore(result)
+  }
+
+  function handleFirstNumRecall() {
+    setFirstNum(store)
+  }
+
+  function handleSecondNumRecall() {
+    setSecondNum(store)
+  }
+
   return (
     <div className="calculator">
       <div className="panel">
@@ -67,6 +80,7 @@ function App() {
           <button onClick={handleFirstNum}>9</button>
           <button onClick={handleFirstNum}>0</button>
           <button onClick={handleResetFirstNum}>Clear</button>
+          <button onClick={handleFirstNumRecall}>Recall</button>
         </div>
       </div>
 
@@ -94,13 +108,19 @@ function App() {
           <button onClick={handleSecondNum}>9</button>
           <button onClick={handleSecondNum}>0</button>
           <button onClick={handleResetSecondNum}>Clear</button>
+          <button onClick={handleSecondNumRecall}>Recall</button>
         </div>
       </div>
 
       <div className="panel answer">
         <p>{result}</p>
+
         <div>
           <button onClick={handleResult}>=</button>
+        </div>
+
+        <div>
+          <button onClick={handleStore}>Store</button>
         </div>
       </div>
     </div>
